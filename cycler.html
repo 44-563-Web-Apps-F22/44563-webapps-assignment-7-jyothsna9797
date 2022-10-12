@@ -70,6 +70,7 @@
         <button onclick="makeNewDiv()" type="submit" class="btn btn-success">Add one</button>
         <button onclick="get()" type="submit" class="btn btn-success">Get</button>
         <button onclick="spin()" type="submit" class="btn btn-success">Spin</button>
+        <button onclick="swap()" type="submit" class="btn btn-success">Swap</button>
     </div>
     <script>
         function makeNewDiv() {
@@ -99,6 +100,27 @@
 
                 var div_containers = document.getElementById("target");
                 div_containers.insertBefore(Item_removed, div_containers.firstChild)
+            }
+        }
+
+        /*Implementing swap function as part of bonus*/
+        function swap() {
+            var Items = document.getElementsByClassName("cycler");
+            var num1 = Math.random() *  Items.length;
+            var target_class =  document.getElementById("target");
+            var num2 = Math.random() *  Items.length;
+
+            var firstElement = document.getElementsByClassName("cycler")[Math.floor(num1)];
+            var secElement = document.getElementsByClassName("cycler")[Math.floor(num2)];
+            
+            // console.log(Items.length);
+            
+            if(Items.length > 1) {
+               // console.log("Print if this loop is executed");
+                var swap = firstElement.innerHTML;
+                firstElement.innerHTML = secElement.innerHTML;
+                console.log(firstElement.innerHTML)
+                secElement.innerHTML = swap;
             }
         }
     </script>
