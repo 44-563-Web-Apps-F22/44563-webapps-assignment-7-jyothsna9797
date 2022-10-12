@@ -18,30 +18,30 @@
         h1 {
             font-family: 'Tangerine', serif;
             font-size: 100px;
-            text-shadow: 4px 4px 4px #aaa;
+            text-shadow: 5px 4px 5px #aaa;
         }
     </style>
 </head>
 
 <body>
-    
+
     <!-- Part 5: setTimeout to create a reaction game.  -->
     <div class="container-fluid" style="text-align: center;">
         <h1>Jyothsna Pamarthi Reaction Timer</h1>
     </div>
-    <div class="d-flex flex-row align-items-center p-1 border-light bd-highlight">
-        <div class="col-md-6" style="background-color:lavender;">
+    <div class="d-flex flex-column align-items-left  border-light bd-highlight">
+        <div class="col-md-12 text-align:center" style="background-color:lavender;">
             <p id="target">Your time</p>
         </div>
-        <div class="col-md-6" style="background-color:lavenderblush;">
+        <div class="col-md-12 text-align:center" style="background-color:lavenderblush;">
             <p id="countdown">Count
         </div>
     </div>
     </div> <br>
     <div class="container-fluid text-center text-align: align-items-center">
 
-        <button type="button" class="btn btn-secondary" onclick="startTime()">Start Timer </button>
-        <button type="button" class="btn btn-info" onclick="recordReact()">React Now</button>
+        <button type="button" class="btn btn-secondary" onclick="startTime()">Start Timer</button>
+        <button type="button" class="btn btn-info" onclick="recordReact()"> React Now </button>
     </div>
 
     <script>
@@ -50,7 +50,27 @@
             myTime = Date.now();
             console.log(myTime);
         }
-        
+
+        // <!--Part 6: Add in the code to handle the count down and check against the time the reaction button was pressed. -->
+
+        function startTime() {
+            for (let val = 0; val < 4; val++) {
+                setTimeout(() => {
+                    document.getElementById("countdown").innerHTML = val;},(3 - val) * 1000);
+            }
+            setTimeout(() => {
+                if (myTime==undefined) {
+                    document.getElementById("target").innerHTML = "Too Slow";
+                }
+                else {
+                    var buttonTime = Date.now();
+                    elapsed_time = buttonTime - myTime;
+                    document.getElementById("target").innerHTML = "Time was: " + elapsed_time;
+                }
+            }, 3000);
+        }
+
+
     </script>
 
 </body>
