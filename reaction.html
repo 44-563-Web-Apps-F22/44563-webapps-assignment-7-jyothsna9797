@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Now Time to Play React Game</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+        </script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
+    <style>
+        h1 {
+            font-family: 'Tangerine', serif;
+            font-size: 100px;
+            text-shadow: 4px 4px 4px #aaa;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <!-- Part 5: setTimeout to create a reaction game.  -->
+    <div class="container-fluid" style="text-align: center;">
+        <h1>Jyothsna Pamarthi Reaction Timer</h1>
+    </div>
+    <div class="d-flex flex-row align-items-center p-1 border-light bd-highlight">
+        <div class="col-md-6" style="background-color:lavender;">
+            <p id="target">Your time</p>
+        </div>
+        <div class="col-md-6" style="background-color:lavenderblush;">
+            <p id="countdown">Count
+        </div>
+    </div>
+    </div> <br>
+    <div class="container-fluid text-center text-align: align-items-center">
+
+        <button type="button" class="btn btn-secondary" onclick="startTime()">Start Timer </button>
+        <button type="button" class="btn btn-info" onclick="recordReact()">React Now</button>
+    </div>
+
+    <script>
+        var myTime;
+        function recordReact() {
+            myTime = Date.now();
+            console.log(myTime);
+        }
+        
+    </script>
+
+</body>
+
+</html>
