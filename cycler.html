@@ -49,35 +49,60 @@
     <div class="container-fluid" style="text-align: center;">
         <h1>Jyothsna Pamarthi builds a cycler</h1>
     </div>
-    <label for="getInput"><span class="text-success" style="font-family: 'Tangerine', serif; font-size: 38px">The text entered here will be added to the rows created  </span></label>
-    <input type="text" name="input" id="getInput" value="">
-    <br>
-    <br>
+
     <div class="flex-container" id="target">
         <div class="cycler">row item 1</div>
         <div class="cycler">row item 2</div>
         <div class="cycler">row item 3</div>
     </div>
 
+    <div class="container" style="text-align: center;">
+    <label for="getInput"><span class="text-success" style="font-family: 'Tangerine', serif; font-size: 38px; text-align: centre;">The text
+            entered here will be added to the rows created  </span></label><br>
+    <input type="text" name="input" id="getInput" value="">
+    <br>
+    </div>
+    <div class="container text-center">
+    <p class="message text-success" > Press the button to create an new element of type div and then add it
+        to the container.</p>
+    </div>
+    <div class="container text-center">
+        <button onclick="makeNewDiv()" type="submit" class="btn btn-success">Add one</button>
+        <button onclick="get()" type="submit" class="btn btn-success">Get</button>
+        <button onclick="spin()" type="submit" class="btn btn-success">Spin</button>
+    </div>
+    <script>
+        function makeNewDiv() {
+            /* make the div and its text */
+            let element = document.createElement("div");
+            let val = document.getElementById("getInput").value;
+            element.innerHTML = val
+            element.className = "cycler"
 
-    <p> Press the button to create an new element of type div and then add it to the container.</p>
-    <button onclick="makeNewDiv()">Add one</button>
+            let container = document.getElementById('target')
+            container.appendChild(element)
+        }
+        /* Implement get functions*/
+        function get() {
+            var itemsCycler = document.getElementsByClassName("cycler");
+            if (itemsCycler.length > 0) {
+                itemsCycler[itemsCycler.length - 1].remove();
+            }
+        }
 
+        /* Implement spin functions*/
+        function spin() {
+            var itemsCycler = document.getElementsByClassName("cycler");
+            if (itemsCycler.length > 1) {
+                Item_removed = itemsCycler[itemsCycler.length - 1];
+                itemsCycler[itemsCycler.length - 1].remove();
+
+                var div_containers = document.getElementById("target");
+                div_containers.insertBefore(Item_removed, div_containers.firstChild)
+            }
+        }
+    </script>
 
 </body>
-<script>
-    function makeNewDiv() {
-        /* make the div and its text */
-        let element = document.createElement("div");
-        let val = document.getElementById("getInput").value;
-        element.innerHTML = val
-        element.className = "cycler"
-
-        /* add it to the container */
-        let container = document.getElementById('target')
-        container.appendChild(element)
-
-    }
-</script>
 
 </html>
