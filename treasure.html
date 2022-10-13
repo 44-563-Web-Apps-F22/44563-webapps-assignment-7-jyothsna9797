@@ -234,23 +234,25 @@
 
         // <!--Bonus: generate random values.-->
         function attemptsReset() {
-            treasureLocation = Math.random() * 24;
-            while (Math.floor(treasureLocation) == 12) {
-                treasureLocation = Math.floor(Math.random() * 24);
-            }
-            chestCount = 0;
-            score = 0;
-            document.getElementById("chests").innerHTML = "Number of chests checked is zero";
-            document.getElementById("score").innerHTML = "Score is unknown";
-            document.getElementById("help").innerHTML = "Help report";
-
-            for (const val = 0; val < 24; val++) {
-                if (val != 12) {
-                    document.getElementById(ids[i]).src = "treasure_chest.jpg";
-                }
-            }
-
+        treasureLocation = Math.floor(Math.random() * 24);
+        // console.log(treasureLocation);
+        while(treasureLocation == 12) {
+            treasureLocation = Math.floor(Math.random() * 24);
         }
+
+        chestCount = 0;
+        score = 0;
+
+        document.getElementById("chests").innerHTML = "Number of chests checked is zero";
+        document.getElementById("score").innerHTML = "Score is unknown";
+        document.getElementById("help").innerHTML = "Help report";
+
+        for(var val = 0; val < 24; val++) {
+            if(val != 12) {
+                document.getElementById(ids[val]).src = "treasure_chest.jpg";
+            }
+        }
+    }
 
     </script>
 
