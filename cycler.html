@@ -85,37 +85,39 @@
         }
         /* Implement get functions*/
         function get() {
-            var itemsCycler = document.getElementsByClassName("cycler");
-            if (itemsCycler.length > 0) {
-                itemsCycler[itemsCycler.length - 1].remove();
+            var cyclerItems = document.getElementsByClassName("cycler");
+            if (cyclerItems.length > 0) {
+                cyclerItems[cyclerItems.length - 1].remove();
             }
         }
 
         /* Implement spin functions*/
         function spin() {
-            var itemsCycler = document.getElementsByClassName("cycler");
-            if (itemsCycler.length > 1) {
-                Item_removed = itemsCycler[itemsCycler.length - 1];
-                itemsCycler[itemsCycler.length - 1].remove();
+            var cyclerItems = document.getElementsByClassName("cycler");
+            if (cyclerItems.length > 1) {
+                removedItem = cyclerItems[cyclerItems.length - 1];
+                cyclerItems[cyclerItems.length - 1].remove();
 
                 var div_containers = document.getElementById("target");
-                div_containers.insertBefore(Item_removed, div_containers.firstChild)
+                div_containers.insertBefore(removedItem, div_containers.firstChild)
             }
         }
+</script>
 
+<script>
         /*Implementing swap function as part of bonus*/
         function swap() {
-            var Items = document.getElementsByClassName("cycler");
-            var num1 = Math.random() *  Items.length;
+            var cyclerItems = document.getElementsByClassName("cycler");
+            var num1 = Math.random() *  cyclerItems.length;
             var target_class =  document.getElementById("target");
-            var num2 = Math.random() *  Items.length;
+            var num2 = Math.random() *  cyclerItems.length;
 
             var firstElement = document.getElementsByClassName("cycler")[Math.floor(num1)];
             var secElement = document.getElementsByClassName("cycler")[Math.floor(num2)];
             
             // console.log(Items.length);
             
-            if(Items.length > 1) {
+            if(cyclerItems.length > 1) {
                // console.log("Print if this loop is executed");
                 var swap = firstElement.innerHTML;
                 firstElement.innerHTML = secElement.innerHTML;
